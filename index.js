@@ -65,7 +65,7 @@ DashPlatform.prototype.didFinishLaunching = function() {
 }
 
 DashPlatform.prototype.dashEventWithAccessory = function(accessory) {
-  this.log.debug('Dash Event [%s]', accessory.displayName);
+  this.log('Dash Event [%s]', accessory.displayName);
   var targetChar = accessory
     .getService(Service.StatelessProgrammableSwitch)
     .getCharacteristic(Characteristic.ProgrammableSwitchEvent);
