@@ -54,7 +54,7 @@ DashPlatform.prototype.didFinishLaunching = function() {
 
   var registedMACs = Object.keys(self.accessories);
   if (registedMACs.length > 0) {
-    self.dash = dash_button(registedMACs, null, null, 'all');
+    self.dash = dash_button(registedMACs, null, null, 'udp');
     self.dash.on('detected', function(dash_id) {
       var accessory = self.accessories[dash_id];
       if (accessory) {
@@ -98,7 +98,7 @@ DashPlatform.prototype.addAccessory = function(mac, name) {
   this.accessories[mac] = newAccessory;
   this.api.registerPlatformAccessories("homebridge-amazondash", "AmazonDash", [newAccessory]);
 
-  var dashButton = dash_button(mac, null, null, 'all');
+  var dashButton = dash_button(mac, null, null, 'udp');
   dashButton.on('detected', function() {
     self.dashEventWithAccessory(newAccessory);
   });
